@@ -2,8 +2,8 @@
 #include <WebSocketsServer.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "FIBRA OPTICA NARVIZ";
-const char* password = "DANA8112VAYA$";
+const char* ssid = "NOMBRE DE LA RED";
+const char* password = "CONTRASEÑA DE LA RED";
 
 WebSocketsServer webSocket = WebSocketsServer(81);
 
