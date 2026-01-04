@@ -144,6 +144,87 @@ Asegúrate de que:
 
 ---
 
+## Base de datos MySQL
+
+El sistema utiliza una base de datos MySQL para almacenar registros de lecturas y eventos de alarma.
+
+### Requisitos
+
+* MySQL Server (8.0 recomendado)
+* MySQL Workbench o acceso por terminal
+* Credenciales de un usuario con permisos de creación
+
+---
+
+### Creación de la base de datos
+
+1. Abre MySQL Workbench o la terminal de MySQL.
+2. Ejecuta el script SQL incluido en el proyecto:
+
+```sql
+-- Contenido ubicado en el archivo db.txt
+```
+
+Puedes hacerlo de dos formas:
+
+**Desde MySQL Workbench**
+
+* Archivo → Abrir Script SQL
+* Selecciona `db.txt`
+* Ejecuta el script completo
+
+**Desde la terminal**
+
+```bash
+mysql -u usuario -p < db.txt
+```
+
+Este archivo crea la base de datos, tablas necesarias y su estructura inicial.
+
+---
+
+### Configuración de conexión (database.py)
+
+El cliente Python obtiene la configuración de conexión desde el archivo `database.py`.
+
+Antes de ejecutar el sistema, verifica y ajusta los siguientes parámetros:
+
+```python
+DB_HOST = "localhost"
+DB_USER = "usuario"
+DB_PASSWORD = "password"
+DB_NAME = "detector_gas"
+DB_PORT = 3306
+```
+
+**Importante:**
+El valor de `DB_PORT` debe coincidir con el puerto configurado en el servidor MySQL del cliente.
+Si tu MySQL usa un puerto distinto (ej. `3307`, `3308`), cámbialo aquí.
+
+---
+
+### Verificación de la base de datos
+
+Para comprobar que la base de datos fue creada correctamente:
+
+```sql
+SHOW DATABASES;
+USE detector_gas;
+SHOW TABLES;
+```
+
+Si las tablas aparecen listadas, la base de datos está lista para usarse.
+
+---
+
+### Funcionamiento con la base de datos
+
+* Cada lectura puede ser almacenada en MySQL
+* Los eventos de alarma se registran para auditoría
+* El sistema permite análisis posterior y generación de reportes
+
+---
+
 ## Autor
 
 **Jeremy Allen**
