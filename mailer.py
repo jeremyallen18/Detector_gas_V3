@@ -7,8 +7,8 @@ from datetime import datetime
 # ============================================
 # CONFIGURACIÓN DEL SERVIDOR DE CORREO
 # ============================================
-EMAIL_SENDER = "jeremi.narvaez@gmail.com"
-EMAIL_PASSWORD = "gemd oiae drdh ngdq"  # ⚠️ IMPORTANTE: Usa una contraseña de aplicación de Gmail
+EMAIL_SENDER = "AQUI INGRESA TU CORREO"
+EMAIL_PASSWORD = "AQUI INGRESA TU CONTRASEÑA DE APLICACIÓN"  #IMPORTANTE: Usa una contraseña de aplicación de Gmail
 
 # Para obtener tu contraseña de aplicación:
 # 1. Ve a myaccount.google.com
