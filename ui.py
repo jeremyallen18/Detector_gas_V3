@@ -65,7 +65,7 @@ class GasAlertUI:
         # Título principal
         titulo = tk.Label(
             titulo_container, 
-            text="⚡ GasAlert D.A.T",
+            text="GasAlert D.A.T",
             font=("Segoe UI", 36, "bold"),
             fg=self.colors['text_primary'], 
             bg=self.colors['bg_secondary']
@@ -104,7 +104,7 @@ class GasAlertUI:
         # ============================================
         # CARD DE CONEXIÓN MEJORADO
         # ============================================
-        card_conexion = self._crear_card(main_container, "🌐 CONEXIÓN ESP32")
+        card_conexion = self._crear_card(main_container, "CONEXIÓN ESP32")
         card_conexion.pack(fill="x", pady=(0, 20))
 
         frame_input = tk.Frame(card_conexion, bg=self.colors['bg_card'])
@@ -113,7 +113,7 @@ class GasAlertUI:
         # Label con icono
         label_ip = tk.Label(
             frame_input, 
-            text="📡 Dirección IP:",
+            text="Dirección IP:",
             font=("Segoe UI", 11, "bold"), 
             fg=self.colors['text_primary'],
             bg=self.colors['bg_card']
@@ -154,7 +154,7 @@ class GasAlertUI:
         # ============================================
         # PANEL DE ACCIONES CON GRID
         # ============================================
-        acciones_card = self._crear_card(main_container, "⚙️ PANEL DE CONTROL")
+        acciones_card = self._crear_card(main_container, "PANEL DE CONTROL")
         acciones_card.pack(fill="x", pady=(0, 20))
 
         botones_container = tk.Frame(acciones_card, bg=self.colors['bg_card'])
@@ -166,7 +166,7 @@ class GasAlertUI:
 
         btn_registrar = self._crear_boton_accion(
             btn_frame_left,
-            text="👤 REGISTRAR USUARIO",
+            text="REGISTRAR USUARIO",
             bg=self.colors['accent_green'],
             hover_bg=self.colors['accent_green_hover'],
             command=self.abrir_registro_usuario
@@ -175,7 +175,7 @@ class GasAlertUI:
 
         btn_users = self._crear_boton_accion(
             btn_frame_left,
-            text="📋 VER USUARIOS",
+            text="VER USUARIOS",
             bg=self.colors['accent_purple'],
             hover_bg=self.colors['accent_purple_hover'],
             command=self.abrir_lista_usuarios
@@ -185,7 +185,7 @@ class GasAlertUI:
         # ============================================
         # MONITOR DE EVENTOS MEJORADO
         # ============================================
-        monitor_card = self._crear_card(main_container, "📊 MONITOR DE EVENTOS EN TIEMPO REAL")
+        monitor_card = self._crear_card(main_container, "MONITOR DE EVENTOS EN TIEMPO REAL")
         monitor_card.pack(fill="both", expand=True)
 
         # Contenedor del monitor
@@ -212,7 +212,7 @@ class GasAlertUI:
         self.textbox.pack(fill="both", expand=True, padx=2, pady=2)
         
         # Mensaje inicial
-        self.textbox.insert(tk.END, "💡 Sistema iniciado. Esperando conexión...\n")
+        self.textbox.insert(tk.END, "Sistema iniciado. Esperando conexión...\n")
         self.textbox.config(state="disabled")
 
         # ============================================
@@ -304,7 +304,7 @@ class GasAlertUI:
             messagebox.showwarning("Advertencia", "Por favor ingresa la IP del ESP32.")
             return
 
-        self._log_message(f"🔄 Conectando a {ip}...", "info")
+        self._log_message(f"Conectando a {ip}...", "info")
         self.status_badge.config(text="● Conectando...", fg=self.colors['warning'])
 
         threading.Thread(
@@ -318,7 +318,7 @@ class GasAlertUI:
     def _actualizar_log(self, texto):
         self.textbox.config(state="normal")
         self.textbox.delete('1.0', tk.END)
-        self.textbox.insert('1.0', f"📡 {texto.strip()}")
+        self.textbox.insert('1.0', f" {texto.strip()}")
         self.textbox.config(state="disabled")
         self.status_badge.config(text="● Conectado", fg=self.colors['success'])
 
@@ -345,7 +345,7 @@ class GasAlertUI:
 
         tk.Label(
             header_reg, 
-            text="👤 Registrar Nuevo Usuario",
+            text="Registrar Nuevo Usuario",
             font=("Segoe UI", 22, "bold"),
             fg=self.colors['text_primary'], 
             bg=self.colors['bg_secondary']
@@ -357,7 +357,7 @@ class GasAlertUI:
 
         tk.Label(
             form_card, 
-            text="📧 Correo Electrónico",
+            text="Correo Electrónico",
             font=("Segoe UI", 12, "bold"), 
             fg=self.colors['text_primary'],
             bg=self.colors['bg_card']
@@ -392,8 +392,8 @@ class GasAlertUI:
 
             try:
                 registrar_usuario(correo)
-                messagebox.showinfo("✅ Éxito", f"Usuario '{correo}' registrado correctamente.")
-                self._log_message(f"✅ Usuario registrado: {correo}", "success")
+                messagebox.showinfo("Éxito", f"Usuario '{correo}' registrado correctamente.")
+                self._log_message(f"Usuario registrado: {correo}", "success")
                 win_reg.destroy()
             except Exception as e:
                 messagebox.showerror("Error", f"No se pudo registrar el usuario:\n{e}")
@@ -424,7 +424,7 @@ class GasAlertUI:
 
         tk.Label(
             header_users, 
-            text="📋 Usuarios Registrados",
+            text="Usuarios Registrados",
             font=("Segoe UI", 24, "bold"),
             fg=self.colors['text_primary'], 
             bg=self.colors['bg_secondary']
@@ -474,8 +474,8 @@ class GasAlertUI:
             style="Custom.Treeview"
         )
 
-        tabla.heading("correo", text="📧 CORREO ELECTRÓNICO")
-        tabla.heading("enviados", text="📨 CORREOS ENVIADOS")
+        tabla.heading("correo", text="CORREO ELECTRÓNICO")
+        tabla.heading("enviados", text="CORREOS ENVIADOS")
 
         tabla.column("correo", width=500)
         tabla.column("enviados", width=230, anchor="center")
@@ -492,7 +492,7 @@ class GasAlertUI:
             if not usuarios:
                 tk.Label(
                     tabla_card,
-                    text="📭 No hay usuarios registrados",
+                    text="No hay usuarios registrados",
                     font=("Segoe UI", 13),
                     fg=self.colors['text_secondary'],
                     bg=self.colors['bg_card']
@@ -506,7 +506,7 @@ class GasAlertUI:
                 # Estadística
                 total_label = tk.Label(
                     tabla_card,
-                    text=f"👥 Total de usuarios: {len(usuarios)}",
+                    text=f"Total de usuarios: {len(usuarios)}",
                     font=("Segoe UI", 12, "bold"),
                     fg=self.colors['accent_blue'],
                     bg=self.colors['bg_card']
@@ -519,7 +519,7 @@ class GasAlertUI:
         # Botón actualizar
         btn_actualizar = self._crear_boton(
             win_u,
-            text="🔄 ACTUALIZAR",
+            text="ACTUALIZAR",
             bg=self.colors['accent_purple'],
             hover_bg=self.colors['accent_purple_hover'],
             command=lambda: [win_u.destroy(), self.abrir_lista_usuarios()],
