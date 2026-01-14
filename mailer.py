@@ -437,20 +437,20 @@ def enviar_correo(ao, do):
                 sumar_envio(correo_destino)
                 
                 exitosos += 1
-                print(f"✅ Correo enviado a: {correo_destino}")
+                print(f"Correo enviado a: {correo_destino}")
                 
             except Exception as e:
                 fallidos += 1
                 errores.append(f"{correo_destino}: {str(e)}")
-                print(f"❌ Error enviando a {correo_destino}: {e}")
+                print(f"Error enviando a {correo_destino}: {e}")
         
         # Cerrar conexión
         server.quit()
         
         # Retornar mensaje de resumen
-        mensaje_resultado = f"✅ Alertas enviadas: {exitosos}/{len(usuarios)} usuarios"
+        mensaje_resultado = f"Alertas enviadas: {exitosos}/{len(usuarios)} usuarios"
         if fallidos > 0:
-            mensaje_resultado += f" | ❌ Fallidos: {fallidos}"
+            mensaje_resultado += f" |  Fallidos: {fallidos}"
         
         return mensaje_resultado
         
