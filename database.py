@@ -2,10 +2,10 @@ import pymysql
 
 config = {
     "host": "localhost",
-    "user": "root",
-    "password": "12345678",
+    "user": "USUARIO MYSQL",
+    "password": "CONTRASEÑA MYSQL",
     "database": "gas_alerta",
-    "port": 3307,
+    "port": 3307,#CAMBIAR AL PUERTO CORRESPONDIENTE
     "cursorclass": pymysql.cursors.DictCursor
 }
 
