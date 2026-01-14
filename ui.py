@@ -1,14 +1,25 @@
 import tkinter as tk
+import sys
+import os
 from tkinter import ttk, messagebox
 import asyncio
 import threading
 from ws_client import conectar_ws
 from database import obtener_todos_usuarios, registrar_usuario
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 
 class GasAlertUI:
     def __init__(self):
         self.win = tk.Tk()
+        icon_path = resource_path("logo/logo_gas.ico")
+        self.win.iconbitmap(icon_path)
         self.win.title("GasAlert D.A.T - Dashboard")
         self.win.geometry("900x750")
         self.win.configure(bg="#0a0e1a")
